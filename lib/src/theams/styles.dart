@@ -8,6 +8,13 @@ abstract class Styles {
     color: Colors.white,
     fontSize: Dimens().sixteen,
   );
+
+  static TextStyle mediumWhite12 = TextStyle(
+    fontFamily: 'Playfair Display',
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+    fontSize: Dimens().twelve,
+  );
   static TextStyle mediumWhite20 = TextStyle(
     fontFamily: 'Playfair Display',
     fontWeight: FontWeight.w500,
@@ -22,7 +29,7 @@ abstract class Styles {
     fontSize: Dimens().twentyFive,
   );
 
-   static TextStyle mediumSecondary25 = TextStyle(
+  static TextStyle mediumSecondary25 = TextStyle(
     fontFamily: 'Playfair Display',
     fontWeight: FontWeight.w500,
     color: ColorsValue.color00ffda,
@@ -71,7 +78,7 @@ abstract class Styles {
     fontSize: Dimens().twentyFive,
   );
 
-   static TextStyle boldSecodry16 = TextStyle(
+  static TextStyle boldSecodry16 = TextStyle(
     fontFamily: 'Playfair Display',
     fontWeight: FontWeight.bold,
     color: ColorsValue.color00ffda,

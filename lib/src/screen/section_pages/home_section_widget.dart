@@ -56,11 +56,18 @@ class ProfileDetailsWidget extends StatelessWidget {
             'Hello, i’m',
             style: Styles.mediumBlue20,
           ),
-          Text(
+          GradientText(
             'Rajkumar Gahane',
             style: Responsive.isMobile(context)
                 ? Styles.mediumWhite35
                 : Styles.mediumWhite52,
+            gradient: LinearGradient(
+              colors: [
+                ColorsValue.color00ffda,
+                const Color(0xff8921aa),
+                const Color(0xff8921aa),
+              ],
+            ),
           ),
           Text(
             'I build mobile and web apps.',

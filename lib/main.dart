@@ -20,10 +20,12 @@ class MyPortfolioApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (_, __) => GetMaterialApp(
-        
           title: 'Rajkumar-Gahane',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData.dark(),
+          theme: ThemeData(
+            fontFamily: 'Playfair Display',
+            primaryColor: ColorsValue.color00ffda,
+          ),
           home: const LandingHomePage(),
         ),
       );

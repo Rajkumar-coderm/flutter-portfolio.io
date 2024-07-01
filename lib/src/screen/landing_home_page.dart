@@ -22,6 +22,8 @@ class _LandingHomePageState extends State<LandingHomePage> {
 
   int selectedIndex = 0;
 
+  RxBool isOpendDrawer = false.obs;
+
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: ColorsValue.primaryColor,
@@ -43,6 +45,9 @@ class _LandingHomePageState extends State<LandingHomePage> {
           height: Get.height,
           width: Get.width,
           child: PageView(
+            physics: Responsive.isWeb(context)
+                ? const ClampingScrollPhysics()
+                : const NeverScrollableScrollPhysics(),
             controller: _scrollController,
             onPageChanged: (value) {
               setState(() {
@@ -53,6 +58,8 @@ class _LandingHomePageState extends State<LandingHomePage> {
             children: [
               const HomeSectionWidget(),
               const AboutMeSectionWidget(),
+              MyServiceSectionWidget(),
+              const ProjectSectionWidget(),
             ],
           ),
         ),
@@ -60,7 +67,8 @@ class _LandingHomePageState extends State<LandingHomePage> {
 
   PreferredSize _customAppBar() => PreferredSize(
         preferredSize: Size(Get.width, Get.height),
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 1050),
           padding: Responsive.isWeb(context) || Responsive.isTablet(context)
               ? Dimens().edgeInsetsSymmetric(
                   horizontal: Responsive.isTablet(context)
@@ -92,18 +100,56 @@ class _LandingHomePageState extends State<LandingHomePage> {
             children: [
               Row(
                 children: [
-                  Text(
+                  GradientText(
                     'RAJKUMAR',
                     style: Responsive.isMobile(context)
                         ? Styles.boldSecodry25
                         : Styles.boldSecodry35,
+                    gradient: LinearGradient(
+                      colors: [
+                        ColorsValue.color00ffda,
+                        const Color(0xff8921aa),
+                      ],
+                    ),
                   ),
                   const Spacer(),
                   Responsive.isMobile(context)
-                      ? Icon(
-                          Icons.menu_outlined,
-                          color: Colors.white,
-                          size: Dimens().thirty,
+                      ? Obx(
+                          () => InkWell(
+                            child: AnimatedSwitcher(
+                              duration: const Duration(milliseconds: 350),
+                              transitionBuilder: (child, anim) =>
+                                  RotationTransition(
+                                turns: child.key == const ValueKey('icon1')
+                                    ? Tween<double>(begin: 1, end: 0.75)
+                                        .animate(anim)
+                                    : Tween<double>(begin: 0.75, end: 1)
+                                        .animate(anim),
+                                child: ScaleTransition(
+                                  scale: anim,
+                                  child: child,
+                                ),
+                              ),
+                              child: isOpendDrawer.value
+                                  ? Icon(
+                                      Icons.close,
+                                      key: const ValueKey('icon1'),
+                                      color: Colors.white,
+                                      size: Dimens().thirty,
+                                    )
+                                  : Icon(
+                                      Icons.menu_outlined,
+                                      key: const ValueKey('icon2'),
+                                      color: Colors.white,
+                                      size: Dimens().thirty,
+                                    ),
+                            ),
+                            onTap: () {
+                              setState(() {
+                                isOpendDrawer.value = !isOpendDrawer.value;
+                              });
+                            },
+                          ),
                         )
                       : HeaderMenuWidget(
                           selectedIndex: selectedIndex,
@@ -115,7 +161,19 @@ class _LandingHomePageState extends State<LandingHomePage> {
                           },
                         )
                 ],
-              )
+              ),
+              if (Responsive.isMobile(context) && isOpendDrawer.value) ...[
+                Dimens().boxHeight(Dimens().ten),
+                HeaderMenuWidget(
+                  selectedIndex: selectedIndex,
+                  onTap: (index) async {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                    _scrollToIndex(index);
+                  },
+                )
+              ],
             ],
           ),
         ),
@@ -133,41 +191,45 @@ class HeaderMenuWidget extends StatelessWidget {
   final int selectedIndex;
 
   static List<HeaderTabModel> tabList = [
-    HeaderTabModel(title: 'Home', lableIcon: Icons.home_outlined),
-    HeaderTabModel(title: 'About', lableIcon: Icons.person_outline),
-    HeaderTabModel(title: 'Projects', lableIcon: Icons.work_outline_outlined),
-    HeaderTabModel(title: 'Contact', lableIcon: Icons.contact_support_outlined),
+    HeaderTabModel(title: 'Home'),
+    HeaderTabModel(title: 'About'),
+    HeaderTabModel(title: 'Services'),
+    HeaderTabModel(title: 'Projects'),
+    HeaderTabModel(title: 'Contact'),
   ];
 
   @override
-  Widget build(BuildContext context) => Row(
-        children: List.generate(
-          tabList.length,
-          (index) => InkWell(
-            onTap: () {
-              onTap(index);
-            },
-            child: Container(
-              margin: Dimens().edgeInsets(right: Dimens().thirty),
-              child: HoverText(
-                text: tabList[index].title,
-                normalStyle: Styles.mediumWhite20,
-                hoverStyle: Styles.mediumSecondryPrimary20,
-                lableIcon: tabList[index].lableIcon,
-                isSelected: selectedIndex == index,
+  Widget build(BuildContext context) => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+            tabList.length,
+            (index) => InkWell(
+              onTap: () {
+                onTap(index);
+              },
+              child: Container(
+                margin: Dimens().edgeInsets(
+                    right: Responsive.isMobile(context)
+                        ? Dimens().thirty
+                        : Dimens().thirty),
+                child: HoverText(
+                  text: tabList[index].title,
+                  normalStyle: Styles.mediumWhite20,
+                  hoverStyle: Styles.mediumSecondryPrimary20,
+                  isSelected: selectedIndex == index,
+                ),
               ),
             ),
-          ),
-        ).toList(),
+          ).toList(),
+        ),
       );
 }
 
 class HeaderTabModel {
   HeaderTabModel({
     required this.title,
-    required this.lableIcon,
   });
 
   final String title;
-  final IconData lableIcon;
 }

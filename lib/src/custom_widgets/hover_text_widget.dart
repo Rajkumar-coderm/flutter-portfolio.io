@@ -8,13 +8,11 @@ class HoverText extends StatefulWidget {
     required this.normalStyle,
     required this.hoverStyle,
     this.isSelected = false,
-    required this.lableIcon,
   }) : super(key: key);
   final String text;
   final TextStyle normalStyle;
   final TextStyle hoverStyle;
   final bool isSelected;
-  final IconData lableIcon;
 
   @override
   _HoverTextState createState() => _HoverTextState();
@@ -32,32 +30,11 @@ class _HoverTextState extends State<HoverText> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 400),
           padding: Dimens().edgeInsets(bottom: Dimens().five),
-          decoration: widget.isSelected || _isHovered
-              ? BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: ColorsValue.color00ffda,
-                      width: 3.0,
-                    ),
-                  ),
-                )
-              : null,
-          child: Row(
-            children: [
-              Icon(
-                widget.lableIcon,
-                color: _isHovered || widget.isSelected
-                    ? widget.hoverStyle.color
-                    : widget.normalStyle.color,
-              ),
-              Dimens().boxWidth(Dimens().three),
-              Text(
-                widget.text,
-                style: _isHovered || widget.isSelected
-                    ? widget.hoverStyle
-                    : widget.normalStyle,
-              ),
-            ],
+          child: Text(
+            widget.text,
+            style: _isHovered || widget.isSelected
+                ? widget.hoverStyle
+                : widget.normalStyle,
           ),
         ),
       );
