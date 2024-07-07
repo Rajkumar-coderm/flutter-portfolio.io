@@ -300,7 +300,7 @@ class Dimens {
   double get twoHundredNinetySix => 296.0.sp;
   double get twoHundredNinetySeven => 297.0.sp;
   double get twoHundredNinetyEight => 298.0.sp;
-  double  threeHundred = 300.sp;
+  double threeHundred = 300.sp;
   double get fiveHundred => 500.0.sp;
   double get fourHundredFifty => 450.0.sp;
 

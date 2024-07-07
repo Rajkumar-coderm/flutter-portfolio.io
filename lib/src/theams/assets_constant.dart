@@ -15,4 +15,6 @@ abstract class StringConstant {
       "Hi, I'm Rajkumar, a passionate Flutter developer from Nagpur, Maharashtra. With a strong foundation in the arts, I've successfully transitioned into the world of mobile app development. I'm excited to showcase my projects and skills, and I'm looking forward to collaborating with like-minded individuals.";
   static const exprienxDetails =
       'Years of experience. Specialised in building apps, while ensuring a seamlessweb experience for end users.';
+  static const projectSectionDes =
+      'As a passionate and dedicated Flutter Mobile and Web Developer, I have worked on a diverse array of projects ranging from dynamic websites to complex mobile applications. Below are some highlights of my live, real-world projects that showcase my skills in front-end development, back-end integration, and responsive design.';
 }

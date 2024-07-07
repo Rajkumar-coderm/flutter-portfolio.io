@@ -9,6 +9,13 @@ abstract class Styles {
     fontSize: Dimens().sixteen,
   );
 
+  static TextStyle mediumLightGrey14 = TextStyle(
+    fontFamily: 'Playfair Display',
+    fontWeight: FontWeight.w400,
+    color: const Color(0xffabacd3),
+    fontSize: Dimens().fourteen,
+  );
+
   static TextStyle mediumWhite12 = TextStyle(
     fontFamily: 'Playfair Display',
     fontWeight: FontWeight.w500,
