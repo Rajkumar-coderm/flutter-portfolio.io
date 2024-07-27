@@ -37,7 +37,7 @@ class MyServiceSectionWidget extends StatelessWidget {
                 ),
                 SizedBox(width: 20),
                 HexagonWidget(
-                  iconData: Icons.settings,
+                  iconData: Icons.pest_control,
                   title: 'Skiils',
                 ),
                 SizedBox(width: 20),

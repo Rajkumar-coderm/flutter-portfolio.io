@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:rajkumar_portfolio/src/src.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const MyPortfolioApp());
 }
 
@@ -22,6 +25,13 @@ class MyPortfolioApp extends StatelessWidget {
         builder: (_, __) => GetMaterialApp(
           title: 'Rajkumar-Gahane',
           debugShowCheckedModeBanner: false,
+          initialRoute: '/home',
+          getPages: [
+            GetPage(
+              name: '/home',
+              page: () => const LandingHomePage(),
+            )
+          ],
           theme: ThemeData(
             fontFamily: 'Playfair Display',
             primaryColor: ColorsValue.color00ffda,

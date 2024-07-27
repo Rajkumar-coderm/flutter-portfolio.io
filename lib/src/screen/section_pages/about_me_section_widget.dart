@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:rajkumar_portfolio/src/src.dart';
 
 class AboutMeSectionWidget extends StatelessWidget {
@@ -19,8 +18,8 @@ class AboutMeSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
         child: SizedBox(
-          height: Get.height - Dimens().eighty,
-          width: Get.width,
+          height: Dimens().percentHeght(1) - Dimens().eighty,
+          width: Dimens().percentWidth(1),
           child: Responsive.isMobile(context) || Responsive.isTablet(context)
               ? SingleChildScrollView(
                   child: MainRenderAboutMeWidget(skillsList: skillsList),
@@ -73,7 +72,7 @@ class AboutMeDetailsWidget extends StatelessWidget {
           Dimens().boxHeight(Dimens().ten),
           SizedBox(
             width: Responsive.isMobile(context) || Responsive.isTablet(context)
-                ? Get.width
+                ? Dimens().percentWidth(1)
                 : Dimens().percentWidth(.5),
             child: Text(
               StringConstant.aboutMeDetails,
@@ -85,7 +84,7 @@ class AboutMeDetailsWidget extends StatelessWidget {
           Dimens().boxHeight(Dimens().fifteen),
           SizedBox(
             width: Responsive.isMobile(context) || Responsive.isTablet(context)
-                ? Get.width
+                ? Dimens().percentWidth(1)
                 : Dimens().percentWidth(.5),
             child: RichText(
               textAlign: TextAlign.start,
@@ -115,7 +114,7 @@ class AboutMeDetailsWidget extends StatelessWidget {
           Dimens().boxHeight(Dimens().fifteen),
           SizedBox(
             width: Responsive.isMobile(context) || Responsive.isTablet(context)
-                ? Get.width
+                ? Dimens().percentWidth(1)
                 : Dimens().percentWidth(.5),
             child: Wrap(
               spacing: Dimens().twenty,

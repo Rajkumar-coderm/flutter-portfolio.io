@@ -99,6 +99,7 @@ class _LandingHomePageState extends State<LandingHomePage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
+                mainAxisAlignment: Responsive.isMobile(context) ?   MainAxisAlignment.start:  MainAxisAlignment.spaceBetween,
                 children: [
                   GradientText(
                     'RAJKUMAR',
@@ -112,7 +113,9 @@ class _LandingHomePageState extends State<LandingHomePage> {
                       ],
                     ),
                   ),
-                  const Spacer(),
+                  if (Responsive.isMobile(context) ||
+                      Responsive.isTablet(context))
+                    const Spacer(),
                   Responsive.isMobile(context)
                       ? Obx(
                           () => InkWell(
@@ -159,7 +162,35 @@ class _LandingHomePageState extends State<LandingHomePage> {
                             });
                             _scrollToIndex(index);
                           },
-                        )
+                        ),
+                  if (Responsive.isWeb(context)) ...[
+                    InkWell(
+                      focusColor: ColorsValue.color00ffda,
+                      splashColor: ColorsValue.color00ffda,
+                      borderRadius: BorderRadius.circular(Dimens().fifty),
+                      onTap: () {},
+                      child: Container(
+                        padding: Dimens().edgeInsetsSymmetric(
+                          vertical: Responsive.isMobile(context)
+                              ? Dimens().ten
+                              : Dimens().fifteen,
+                          horizontal: Dimens().twentyFive,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: ColorsValue.color00ffda,
+                          ),
+                          borderRadius: BorderRadius.circular(Dimens().fifty),
+                        ),
+                        child: Text(
+                          'Download CV',
+                          style: Responsive.isMobile(context)
+                              ? Styles.mediumWhite16
+                              : Styles.mediumWhite20,
+                        ),
+                      ),
+                    )
+                  ],
                 ],
               ),
               if (Responsive.isMobile(context) && isOpendDrawer.value) ...[
