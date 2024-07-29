@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - main
-name: Code checker
+name: Code checker and Netlify deploy
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,11 +17,11 @@ jobs:
       - run: flutter pub upgrade
       - run: flutter pub get
       - run: flutter analyze
-      - run: flutter build web --release
-#      - uses: actions/upload-artifact@master
-#        with:
-#          name: app-release
-#          path: build/app/outputs/flutter-apk/app-release.apk
-#      - uses: geekyeggo/delete-artifact@v1
-#        with:
-#          name: app-release
+      - run: flutter build web
+      - name: Deploy to Netlify
+        uses: netlify/deploy@v1
+        with:
+          netlify-token: ${{ secrets.NETLIFY_TOKEN }}
+          site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          deploy-message: "Deploy from GitHub Actions"
+          deploy-branch: "main"
