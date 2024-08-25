@@ -86,26 +86,56 @@ class ProfileDetailsWidget extends StatelessWidget {
         Row(
           children: [
             BouncingImage(
+              onTap: () {
+                openInWindow(
+                  'https://www.facebook.com/rajkumar.gahane2001',
+                  'Rajkumar Resume',
+                );
+              },
               imagePath:
                   'https://img.icons8.com/bubbles/$iconSize/000000/facebook.png',
             ),
             Dimens().boxWidth(Dimens().ten),
             BouncingImage(
+              onTap: () {
+                openInWindow(
+                  'https://linkedin.com/in/rajkumar-gahane-4354021b7',
+                  'Rajkumar Resume',
+                );
+              },
               imagePath:
                   'https://img.icons8.com/bubbles/$iconSize/000000/linkedin.png',
             ),
             Dimens().boxWidth(Dimens().ten),
             BouncingImage(
+              onTap: () {
+                openInWindow(
+                  'https://www.instagram.com/i.rajkumargahane/',
+                  'Rajkumar Resume',
+                );
+              },
               imagePath:
                   'https://img.icons8.com/bubbles/$iconSize/000000/instagram.png',
             ),
             Dimens().boxWidth(Dimens().ten),
             BouncingImage(
+              onTap: () {
+                openInWindow(
+                  'https://api.whatsapp.com/send?phone=+919168716592',
+                  'Rajkumar Resume',
+                );
+              },
               imagePath:
                   'https://img.icons8.com/bubbles/$iconSize/000000/whatsapp.png',
             ),
             Dimens().boxWidth(Dimens().ten),
             BouncingImage(
+              onTap: () {
+                openInWindow(
+                  'https://github.com/Rajkumar-coderm',
+                  'Rajkumar Resume',
+                );
+              },
               imagePath:
                   'https://img.icons8.com/bubbles/$iconSize/000000/github.png',
             ),

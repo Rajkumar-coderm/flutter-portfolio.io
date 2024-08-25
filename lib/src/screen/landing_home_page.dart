@@ -99,7 +99,9 @@ class _LandingHomePageState extends State<LandingHomePage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                mainAxisAlignment: Responsive.isMobile(context) ?   MainAxisAlignment.start:  MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: Responsive.isMobile(context)
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.spaceBetween,
                 children: [
                   GradientText(
                     'RAJKUMAR',
@@ -167,8 +169,14 @@ class _LandingHomePageState extends State<LandingHomePage> {
                     InkWell(
                       focusColor: ColorsValue.color00ffda,
                       splashColor: ColorsValue.color00ffda,
+                      hoverColor: ColorsValue.color00ffda,
                       borderRadius: BorderRadius.circular(Dimens().fifty),
-                      onTap: () {},
+                      onTap: () async {
+                        openInWindow(
+                          'https://drive.google.com/file/d/1tykRLdwtqYP4XiypcYscvXcs3FFeW3aD/view?usp=sharing',
+                          'Rajkumar Resume',
+                        );
+                      },
                       child: Container(
                         padding: Dimens().edgeInsetsSymmetric(
                           vertical: Responsive.isMobile(context)
