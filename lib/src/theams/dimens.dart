@@ -302,6 +302,7 @@ class Dimens {
   double get twoHundredNinetyEight => 298.0.sp;
   double threeHundred = 300.sp;
   double get threeHundredFifty => 350.sp;
+  double get fourHundred => 400.sp;
   double get fiveHundred => 500.0.sp;
   double get fourHundredFifty => 450.0.sp;
 
@@ -339,5 +340,4 @@ class Dimens {
   /// Get the width with the percent value of the screen width.
   double percentWidth(double percentValue) => percentValue.sw;
   double percentHeght(double percentValue) => percentValue.sh;
-
 }

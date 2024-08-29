@@ -8,7 +8,7 @@ abstract class AssetsConstant {
   static const String javascriptLogo = 'assets/png/javascript-logo.png';
   static const String pythonLogo = 'assets/png/python-logo-icon.png';
   static const String vscodeLogo = 'assets/png/vs-code-logo.png';
-  static const hospiceProjectLogo = 'assets/png/hospice_project_image.png';
+  static const hospiceProjectLogo = 'assets/svg/doctor_logo.svg';
 }
 
 abstract class StringConstant {

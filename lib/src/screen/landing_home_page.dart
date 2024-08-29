@@ -28,6 +28,83 @@ class _LandingHomePageState extends State<LandingHomePage> {
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: ColorsValue.primaryColor,
         appBar: _customAppBar(),
+        floatingActionButton: Stack(
+          children: [
+            Positioned(
+              right: 16.0,
+              bottom: 16.0,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  InkWell(
+                    child: Container(
+                      padding: Dimens().edgeInsetsAll(5),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: ColorsValue.color00ffda,
+                      ),
+                      child: Icon(
+                        Icons.close,
+                        color: ColorsValue.primaryColor,
+                      ),
+                    ),
+                  ),
+                  Dimens().boxHeight(Dimens().five),
+                  SizedBox(
+                    width: 300,
+                    child: Card(
+                      margin: const EdgeInsets.all(0),
+                      elevation: 8.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: const ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-tUzKhAhZojMzYZzMo6qCKxbsEf0qEcIwjA&s',
+                          ), // Replace with your image
+                        ),
+                        title: Text('Book a Meeting with me Rajkumar'),
+                      ),
+                    ),
+                  ),
+                  Dimens().boxHeight(Dimens().five),
+                  Card(
+                    elevation: 8.0,
+                    margin: const EdgeInsets.all(0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Container(
+                      width: 350,
+                      padding: const EdgeInsets.all(16.0),
+                      child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Hi 👋 Call us for FREE!\nCall or Chat with our sales analysts without any phone carrier charges.',
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Dimens().boxHeight(Dimens().five),
+                  FloatingActionButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.chat,
+                      color: ColorsValue.primaryColor,
+                    ),
+                    backgroundColor: ColorsValue.color00ffda,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
         body: Container(
           padding: Responsive.isWeb(context) || Responsive.isTablet(context)
               ? Dimens().edgeInsetsSymmetric(

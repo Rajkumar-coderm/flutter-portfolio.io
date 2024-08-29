@@ -25,13 +25,6 @@ class MyPortfolioApp extends StatelessWidget {
         builder: (_, __) => GetMaterialApp(
           title: 'Rajkumar-Gahane',
           debugShowCheckedModeBanner: false,
-          initialRoute: '/home',
-          getPages: [
-            GetPage(
-              name: '/home',
-              page: () => const LandingHomePage(),
-            )
-          ],
           theme: ThemeData(
             fontFamily: 'Playfair Display',
             primaryColor: ColorsValue.color00ffda,

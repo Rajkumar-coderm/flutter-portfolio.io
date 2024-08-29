@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rajkumar_portfolio/src/src.dart';
 
 class ProjectSectionWidget extends StatelessWidget {
   const ProjectSectionWidget({super.key});
 
   static final List<ProjectSectionModel> _projectDetailsList = [
+    ProjectSectionModel(
+      projectName: 'Hospice Care',
+      projectDescription: StringConstant.hospiceDes,
+      projectImagePath: AssetsConstant.hospiceProjectLogo,
+    ),
+    ProjectSectionModel(
+      projectName: 'Hospice Care',
+      projectDescription: StringConstant.hospiceDes,
+      projectImagePath: AssetsConstant.hospiceProjectLogo,
+    ),
     ProjectSectionModel(
       projectName: 'Hospice Care',
       projectDescription: StringConstant.hospiceDes,
@@ -34,36 +44,49 @@ class ProjectSectionWidget extends StatelessWidget {
               ),
               Dimens().boxHeight(Dimens().fifteen),
               SizedBox(
-                child: GridView.count(
-                  shrinkWrap: true,
-                  crossAxisCount: Responsive.isWeb(context)
-                      ? 4
-                      : Responsive.isTablet(context)
-                          ? 2
-                          : 1,
-                  crossAxisSpacing: Responsive.isMobile(context) ||
-                          Responsive.isTablet(context)
-                      ? Dimens().ten
-                      : Dimens().thirtyFive,
-                  mainAxisSpacing: Responsive.isMobile(context) ||
-                          Responsive.isTablet(context)
-                      ? Dimens().ten
-                      : Dimens().thirtyFive,
-                  addAutomaticKeepAlives: false,
-                  addRepaintBoundaries: false,
+                width:
+                    Responsive.isMobile(context) || Responsive.isTablet(context)
+                        ? Dimens().percentWidth(1)
+                        : Dimens().percentWidth(.65),
+                height: Dimens().fiveHundred,
+                child: CarouselView(
+                  padding: Dimens().edgeInsets(
+                    left: Dimens().eighteen,
+                  ),
+                  itemExtent: Dimens().fourHundred,
+                  shrinkExtent: 300,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  itemSnapping: true,
                   children: List.generate(
                     _projectDetailsList.length,
-                    (index) => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        HoverFlipImage(
-                          description:
-                              _projectDetailsList[index].projectDescription,
-                          frontImageUrl:
+                    (index) => Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      color: Colors.white,
+                      child: Container(
+                        padding: Dimens().edgeInsetsAll(Dimens().fifteen),
+                        child: Column(
+                          children: [
+                            SvgPicture.asset(
                               _projectDetailsList[index].projectImagePath,
-                          projectName: _projectDetailsList[index].projectName,
+                              height: Dimens().oneHundredFifty,
+                            ),
+                            Text(
+                              _projectDetailsList[index].projectName,
+                              style: Styles.boldSecodry25,
+                            ),
+                            Flexible(
+                              child: Text(
+                                _projectDetailsList[index].projectDescription,
+                                style: Styles.mediumBlack18,
+                              ),
+                            )
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

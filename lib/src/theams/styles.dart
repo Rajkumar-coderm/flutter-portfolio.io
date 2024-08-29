@@ -102,4 +102,10 @@ abstract class Styles {
     color: const Color(0xffabacd3),
     fontSize: Dimens().fifteen,
   );
+
+  static TextStyle mediumBlack18 = TextStyle(
+    fontWeight: FontWeight.w500,
+    color: const Color(0xff000002),
+    fontSize: Dimens().eighteen,
+  );
 }
