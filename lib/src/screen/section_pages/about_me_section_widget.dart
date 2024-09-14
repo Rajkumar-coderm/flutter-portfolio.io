@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rajkumar_portfolio/src/src.dart';
+import 'package:flutter_web_portfolio/src/src.dart';
 
 class AboutMeSectionWidget extends StatelessWidget {
   const AboutMeSectionWidget({super.key});
@@ -138,40 +138,14 @@ class ProfilePictureWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Stack(
-        alignment: Alignment.center,
-        children: [
-          Container(
-            height: Responsive.isMobile(context)
-                ? Dimens().threeHundred
-                : Dimens().fiveHundred + Dimens().oneHundred,
-            width: Responsive.isMobile(context)
-                ? Dimens().threeHundred
-                : Dimens().fiveHundred + Dimens().oneHundred,
-            decoration: BoxDecoration(
-              color: ColorsValue.color00ffda,
-              shape: BoxShape.circle,
-            ),
-          ),
-          Positioned(
-            right: Responsive.isMobile(context) ? -2 : 45,
-            bottom: Responsive.isMobile(context) ? 0 : 8,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(Dimens().twoHundred),
-              child: Image(
-                image: const AssetImage(AssetsConstant.profileImage),
-                colorBlendMode: BlendMode.softLight,
-                fit: BoxFit.fill,
-                height: Responsive.isMobile(context)
-                    ? Dimens().threeHundred
-                    : Dimens().fiveHundred,
-                width: Responsive.isMobile(context)
-                    ? Dimens().threeHundred
-                    : Dimens().fiveHundred,
-              ),
-            ),
-          ),
-        ],
+  Widget build(BuildContext context) => CircleAvatar(
+        radius: Responsive.isMobile(context)
+            ? Dimens().threeHundred / 2
+            : (Dimens().fiveHundred + Dimens().oneHundred) / 2,
+        backgroundColor: ColorsValue.color00ffda,
+        backgroundImage: const AssetImage(
+          AssetsConstant.profileImage,
+        ),
       );
 }
 

@@ -10,7 +10,7 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="rajkumar_portfolio">
+  <meta name="apple-mobile-web-app-title" content="flutter_web_portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -23,8 +23,26 @@
 
 <body>
   <script src="flutter_bootstrap.js" async></script>
-  <div class="loader-container">
+  <div class="loader-container" id="loader-id143">
     <div class="loader"></div>
   </div>
+  <script>
+    window.addEventListener('load', function () {
+      const isReloaded = (
+        (window.performance.navigation && window.performance.navigation.type === 1) ||
+        window.performance
+          .getEntriesByType('navigation')
+          .map((nav) => nav.type)
+          .includes('reload')
+      );
+      if (isReloaded) {
+        var loadingIndicator = document.getElementById("loader-id143");
+        if (loadingIndicator) {
+          loadingIndicator.remove();
+        }
+      }
+    })
+  </script>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 {
-    "name": "rajkumar_portfolio",
-    "short_name": "rajkumar_portfolio",
+    "name": "flutter_web_portfolio",
+    "short_name": "flutter_web_portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

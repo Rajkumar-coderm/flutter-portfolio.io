@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rajkumar_portfolio/src/src.dart';
+import 'package:flutter_web_portfolio/src/src.dart';
 
 class HomeSectionWidget extends StatelessWidget {
   const HomeSectionWidget({super.key});
@@ -19,22 +19,11 @@ class HomeSectionWidget extends StatelessWidget {
                   ),
             if (Responsive.isWeb(context)) ...[
               const Spacer(),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    height: Dimens().fiveHundred,
-                    width: Dimens().fiveHundred,
-                    decoration: BoxDecoration(
-                      color: ColorsValue.color00ffda,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  Image.asset(
-                    'assets/svg/flutter_b1.png',
-                  ),
-                ],
-              )
+              CircleAvatar(
+                radius: (Dimens().fiveHundred) / 2,
+                backgroundColor: ColorsValue.color00ffda,
+                backgroundImage: const AssetImage('assets/svg/flutter_b1.png'),
+              ),
             ],
           ],
         ),

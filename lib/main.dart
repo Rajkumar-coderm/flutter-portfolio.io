@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_web_portfolio/src/src.dart';
 import 'package:get/get.dart';
-import 'package:rajkumar_portfolio/src/src.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {

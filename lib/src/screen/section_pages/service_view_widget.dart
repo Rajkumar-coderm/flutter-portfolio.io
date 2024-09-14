@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rajkumar_portfolio/src/src.dart';
+import 'package:flutter_web_portfolio/src/src.dart';
 
 class MyServiceSectionWidget extends StatelessWidget {
   MyServiceSectionWidget({Key? key}) : super(key: key);
