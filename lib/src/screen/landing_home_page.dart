@@ -148,6 +148,7 @@ class _LandingHomePageState extends State<LandingHomePage> {
               const AboutMeSectionWidget(),
               MyServiceSectionWidget(),
               const ProjectSectionWidget(),
+              const ContactUsSectionWidget(),
             ],
           ),
         ),
